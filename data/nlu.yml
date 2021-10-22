@@ -41,6 +41,7 @@ nlu:
     - that sounds good
     - correct
     - sure
+    - yeah sure
 - intent: deny
   examples: |
     - no
@@ -61,13 +62,11 @@ nlu:
 - intent: out_of_scope
   examples: |
     - ummmmm
+    - hmmmmm
     - mmm I can't see what you're saying
     - I am looking forward to my best friend's wedding. Do you have any tuxedo's?
-    - hmmmm
     - Can I?
-    - Well, okay then
     - what is the square root of 5
-    - I want to know the weather
     - what is the meaning of life.
     - Fridge Isn't Running
     - my tv isn't working
@@ -76,20 +75,43 @@ nlu:
     - what is the weather
     - why is the sky blue
     - blah blah blah
+    - no sizes, it's a phone
 - intent: inform
   examples: |
     - [red](color) color please
+    - [red](color) color
     - [red](color)
+    - I'd like them in [red](color)
     - My size is [7](size)
     - I am size [7](size)
     - [7](size)
-    - [Nike](brand)
+    - size [7](size)
+    - I want [3](count) of those
+    - I want [3](count) {product}
+    - [3](count) items
     - [3](count)
-    - [red](color) color
+    - I want the brand [Nike](brand)
+    - [Nike](brand)
     - [nike](brand) please
+    - i want [adidas](brand) [shoes](product)
+    - [red](color) colored
+    - [8](size)
+    - [puma](brand) [shoes](product) please
+    - [black](color)
+    - [48](size)
+    - [defacto](brand)
+    - [gray](color), please
+    - [large](size)
+    - [JBL](brand)
+    - [black](color)
+    - [blue](color)
+    - [7](size)
+    - [diesel](brand)
 - intent: order_product
   examples: |
     - I want to order [shoes](product)
+    - I want some [shoes](product) please
+    - can i buy [shoes](product)
     - can i order some [shoes](product)
     - I want to buy [shoes](product)
     - Do you have any [shoes](product)?
@@ -100,3 +122,10 @@ nlu:
     - I wanna buy [shoes](product)
     - I wanna order [red](color) [shoes](product)
     - i want to order [shoes](product)
+    - hi, can i get some [shoes](product)
+    - i want some [shoes](product)
+    - i want to buy a [skirt](product)
+    - i want to buy [headphones](product)
+    - i want to buy a [mobile](product)
+    - i want an iphone
+    - i want to buy [pants](product)

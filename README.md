@@ -8,6 +8,9 @@ Run:
 ```bash
 sudo apt-get install python3.7-venv
 python3.7 -m venv rasa
+```
+And activate it by running:
+```
 source rasa/bin/activate
 ``` 
 
@@ -17,7 +20,10 @@ Run:
 ```bash
 pip install -r requirements.txt
 ```
-
+__Note:__ You might also need to install the following spaCy dependency  
+```
+python -m spacy download en_core_web_md
+```
 ## Run the bot
 
 Use `rasa train` to train a model.

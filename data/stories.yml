@@ -6,33 +6,29 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  
+
+- story: handle user affirm order
+  steps:
+  - checkpoint: order_confirmation
+  - intent: affirm
+  - action: utter_order_confirm
+  - checkpoint: check_flow_finished
+
+- story: handle user cancel order
+  steps:
+  - checkpoint: order_confirmation
+  - intent: deny
+  - action: utter_order_cancel
+  - checkpoint: check_flow_finished
+
+- story: finish flow
+  steps:
+  - checkpoint: check_flow_finished
+  - intent: goodbye
+  - action: utter_goodbye
+
 - story: make an order
   steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: inform
-  - action: utter_product_order_start
-  - intent: inform
-  - action: utter_ask_product_stock_form_color
-  - intent: inform
-  - action: utter_ask_product_stock_form_size
-  - intent: inform
-  - action: utter_ask_product_stock_form_brand
-  - intent: inform
-  - action: utter_ask_product_stock_form_count
-  - intent: inform 
-  - action: utter_product_stock_available
-
-- story: Don't understand
-  steps:
-  - intent: out_of_scope
-  - action: utter_default
-
-- story: interactive_story_1
-  steps:
-  - intent: greet
-  - action: utter_greet
   - intent: order_product
     entities:
     - product: shoes
@@ -41,12 +37,135 @@ stories:
   - action: utter_product_order_start
   - intent: inform
     entities:
-    - color: red
+    - size: '7'
   - slot_was_set:
-    - color: red
-  - action: utter_ask_product_stock_form_size
+    - size: '7'
+  - action: utter_ask_product_brand
   - intent: inform
     entities:
-    - brand: nike
+    - brand: adidas
   - slot_was_set:
-    - brand: nike
+    - brand: adidas
+  - action: utter_ask_product_color
+  - intent: inform
+    entities:
+    - color: red
+  - slot_was_set:
+    - color: red
+  - action: utter_product_stock_available
+  - action: utter_ask_for_confirmation
+  - checkpoint: order_confirmation
+
+- story: make an order 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_product
+    entities:
+    - product: skirt
+  - slot_was_set:
+    - product: skirt
+  - action: utter_ask_product_color
+  - intent: inform
+    entities:
+    - color: black
+  - slot_was_set:
+    - color: black
+  - action: utter_ask_product_size
+  - intent: inform
+    entities:
+    - size: '48'
+  - slot_was_set:
+    - size: '48'
+  - action: utter_ask_product_brand
+  - intent: inform
+    entities:
+    - brand: defacto
+  - slot_was_set:
+    - brand: defacto
+  - action: utter_product_stock_available
+  - checkpoint: order_confirmation
+
+- story: make an order 3
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_product
+    entities:
+    - product: headphones
+  - slot_was_set:
+    - product: headphones
+  - action: utter_ask_product_color
+  - intent: inform
+    entities:
+    - color: gray
+  - slot_was_set:
+    - color: gray
+  - action: utter_ask_product_size
+  - intent: inform
+    entities:
+    - size: large
+  - slot_was_set:
+    - size: large
+  - action: utter_ask_product_brand
+  - intent: inform
+    entities:
+    - brand: JBL
+  - slot_was_set:
+    - brand: JBL
+  - action: utter_product_stock_available
+  - action: utter_ask_for_confirmation
+  - intent: affirm
+  - action: utter_order_confirm
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_product
+    entities:
+    - product: mobile
+  - slot_was_set:
+    - product: mobile
+  - action: utter_ask_product_color
+  - intent: inform
+    entities:
+    - color: black
+  - slot_was_set:
+    - color: black
+  - action: utter_ask_product_size
+  - intent: out_of_scope
+  - action: utter_default
+  - intent: order_product
+
+- story: make an order and cancel it
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_product
+    entities:
+    - product: pants
+  - slot_was_set:
+    - product: pants
+  - action: utter_ask_product_color
+  - intent: inform
+    entities:
+    - color: blue
+  - slot_was_set:
+    - color: blue
+  - action: utter_ask_product_size
+  - intent: inform
+    entities:
+    - size: '7'
+  - slot_was_set:
+    - size: '7'
+  - action: utter_ask_product_brand
+  - intent: inform
+    entities:
+    - brand: diesel
+  - slot_was_set:
+    - brand: diesel
+  - action: utter_product_stock_available
+  - action: utter_ask_for_confirmation
+  - intent: deny
+  - action: utter_order_cancel

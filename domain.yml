@@ -3,22 +3,19 @@ session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
 intents:
-- order_product
 - greet
-- inform
-- goodbye
-- affirm
-- deny
-- bot_challenge
 - out_of_scope
+- order_product
+- deny
+- inform
+- bot_challenge
+- affirm
+- goodbye
 entities:
 - brand
 - color
-- count
 - product
-- product_brand
-- product_color
-- product_size
+- size
 slots:
   product:
     type: text
@@ -32,15 +29,6 @@ slots:
   brand:
     type: text
     influence_conversation: false
-  count:
-    type: float
-    initial_value: 1
-    influence_conversation: false
-    max_value: 1.0
-    min_value: 0.0
-  requested_slot:
-    type: any
-    influence_conversation: false
 responses:
   utter_greet:
   - text: Hey there!
@@ -53,19 +41,31 @@ responses:
   - text: um, what did you just say to me?
   - text: beep, boop, don't understand
   utter_product_order_start:
-  - text: I can help you find some {product}!
-  utter_ask_product_stock_form_color:
+  - text: I can help you find some {product}! Tell me more.
+  utter_ask_product_color:
   - text: What color are you looking for?
-  utter_ask_product_stock_form_size:
+  utter_ask_product_size:
   - text: What size would you like?
-  utter_ask_product_stock_form_brand:
+  utter_ask_product_brand:
   - text: What brand of {product} would you like?
-  utter_ask_product_stock_form_count:
-  - text: How many {product}s would you like to order?
   utter_product_stock_available:
   - text: Looks like we have size {size} {color} {product} in stock!
+  utter_ask_for_confirmation:
+  - text: Should I order your {product} now?
+  utter_order_confirm:
+  - text: Your order is confirmed. Thank you! I hope I helped.
+  utter_order_cancel:
+  - text: Your order is cancelled.
 actions:
-- utter_ask_product_stock_form_size
+- utter_ask_for_confirmation
+- utter_ask_product_brand
+- utter_ask_product_color
+- utter_ask_product_size
+- utter_default
 - utter_goodbye
 - utter_greet
+- utter_iamabot
+- utter_order_cancel
+- utter_order_confirm
 - utter_product_order_start
+- utter_product_stock_available
