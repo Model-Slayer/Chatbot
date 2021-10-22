@@ -1,0 +1,102 @@
+version: "2.0"
+nlu:
+- intent: greet
+  examples: |
+    - hey
+    - hello
+    - hi
+    - hello there
+    - good morning
+    - good evening
+    - moin
+    - hey there
+    - let's go
+    - hey dude
+    - goodmorning
+    - goodevening
+    - good afternoon
+    - what's up??
+    - yo
+    - howdy
+- intent: goodbye
+  examples: |
+    - good afternoon
+    - cu
+    - good by
+    - cee you later
+    - good night
+    - bye
+    - goodbye
+    - have a nice day
+    - see you around
+    - bye bye
+    - see you later
+    - later
+- intent: affirm
+  examples: |
+    - yes
+    - y
+    - indeed
+    - of course
+    - that sounds good
+    - correct
+    - sure
+- intent: deny
+  examples: |
+    - no
+    - n
+    - never
+    - I don't think so
+    - don't like that
+    - no way
+    - not really
+- intent: bot_challenge
+  examples: |
+    - are you a bot?
+    - are you a human?
+    - am I talking to a bot?
+    - am I talking to a human?
+    - is this a bot?
+    - are you a chatbot?
+- intent: out_of_scope
+  examples: |
+    - ummmmm
+    - mmm I can't see what you're saying
+    - I am looking forward to my best friend's wedding. Do you have any tuxedo's?
+    - hmmmm
+    - Can I?
+    - Well, okay then
+    - what is the square root of 5
+    - I want to know the weather
+    - what is the meaning of life.
+    - Fridge Isn't Running
+    - my tv isn't working
+    - my washing machine isn't working
+    - what year is it
+    - what is the weather
+    - why is the sky blue
+    - blah blah blah
+- intent: inform
+  examples: |
+    - [red](color) color please
+    - [red](color)
+    - My size is [7](size)
+    - I am size [7](size)
+    - [7](size)
+    - [Nike](brand)
+    - [3](count)
+    - [red](color) color
+    - [nike](brand) please
+- intent: order_product
+  examples: |
+    - I want to order [shoes](product)
+    - can i order some [shoes](product)
+    - I want to buy [shoes](product)
+    - Do you have any [shoes](product)?
+    - Can I get some [shoes](product)?
+    - Is there any [shoes](product)?
+    - Order [shoes](product)
+    - I wanna order [shoes](product)
+    - I wanna buy [shoes](product)
+    - I wanna order [red](color) [shoes](product)
+    - i want to order [shoes](product)

@@ -1,0 +1,71 @@
+version: '2.0'
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true
+intents:
+- order_product
+- greet
+- inform
+- goodbye
+- affirm
+- deny
+- bot_challenge
+- out_of_scope
+entities:
+- brand
+- color
+- count
+- product
+- product_brand
+- product_color
+- product_size
+slots:
+  product:
+    type: text
+    influence_conversation: true
+  color:
+    type: text
+    influence_conversation: false
+  size:
+    type: text
+    influence_conversation: false
+  brand:
+    type: text
+    influence_conversation: false
+  count:
+    type: float
+    initial_value: 1
+    influence_conversation: false
+    max_value: 1.0
+    min_value: 0.0
+  requested_slot:
+    type: any
+    influence_conversation: false
+responses:
+  utter_greet:
+  - text: Hey there!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a bot, my name's moha
+  utter_default:
+  - text: I don't think I understand. Can you try providing more detail?
+  - text: um, what did you just say to me?
+  - text: beep, boop, don't understand
+  utter_product_order_start:
+  - text: I can help you find some {product}!
+  utter_ask_product_stock_form_color:
+  - text: What color are you looking for?
+  utter_ask_product_stock_form_size:
+  - text: What size would you like?
+  utter_ask_product_stock_form_brand:
+  - text: What brand of {product} would you like?
+  utter_ask_product_stock_form_count:
+  - text: How many {product}s would you like to order?
+  utter_product_stock_available:
+  - text: Looks like we have size {size} {color} {product} in stock!
+actions:
+- utter_ask_product_stock_form_size
+- utter_goodbye
+- utter_greet
+- utter_product_order_start

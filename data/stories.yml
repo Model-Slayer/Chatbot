@@ -1,0 +1,52 @@
+version: "2.0"
+
+stories:
+
+- story: greeting
+  steps:
+  - intent: greet
+  - action: utter_greet
+  
+- story: make an order
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: inform
+  - action: utter_product_order_start
+  - intent: inform
+  - action: utter_ask_product_stock_form_color
+  - intent: inform
+  - action: utter_ask_product_stock_form_size
+  - intent: inform
+  - action: utter_ask_product_stock_form_brand
+  - intent: inform
+  - action: utter_ask_product_stock_form_count
+  - intent: inform 
+  - action: utter_product_stock_available
+
+- story: Don't understand
+  steps:
+  - intent: out_of_scope
+  - action: utter_default
+
+- story: interactive_story_1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: order_product
+    entities:
+    - product: shoes
+  - slot_was_set:
+    - product: shoes
+  - action: utter_product_order_start
+  - intent: inform
+    entities:
+    - color: red
+  - slot_was_set:
+    - color: red
+  - action: utter_ask_product_stock_form_size
+  - intent: inform
+    entities:
+    - brand: nike
+  - slot_was_set:
+    - brand: nike
