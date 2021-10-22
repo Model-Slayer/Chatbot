@@ -29,13 +29,28 @@ slots:
   brand:
     type: text
     influence_conversation: false
+forms:
+  product_form:
+    required_slots:
+        product:
+          - type: from_entity
+            entity: product
+        color:
+          - type: from_entity
+            entity: color
+        brand:
+          - type: from_entity
+            entity: brand
+        size:
+          - type: from_entity
+            entity: size
 responses:
   utter_greet:
   - text: Hey there!
   utter_goodbye:
   - text: Bye
   utter_iamabot:
-  - text: I am a bot, my name's moha
+  - text: I am a bot, my name's Ga3far
   utter_default:
   - text: I don't think I understand. Can you try providing more detail?
   - text: um, what did you just say to me?

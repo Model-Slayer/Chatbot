@@ -12,4 +12,10 @@ rules:
   - intent: bot_challenge
   - action: utter_iamabot
 
+- rule: Activate product form
+  steps:
+  - intent: order_product
+  - action: product_form
+  - active_loop: product_form
+
   
